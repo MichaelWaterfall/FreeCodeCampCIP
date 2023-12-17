@@ -3,25 +3,23 @@ let newArray = [];
 
 function selectionSort(array) {
     // Only change code below this line
-    let smallestNumber = array[0];
-    let swapped = true;
-    while(swapped) {
-        swapped = false;
-        for(let i = 0; i < array.length; i++) {
-            if(array[i] < smallestNumber) {
-                smallestNumber = array[i];
-                newArray.push(smallestNumber);
-                array.splice(array[i], 1);
-                swapped = true;
+    
+    for (let i = 0; i < array.length - 1; i++) {
+        let minIndex = i;
+        for(let j = i + 1; j < array.length; j++) {
+            if(array[j] < array[minIndex]) {
+                minIndex = j;
             }
         }
-    } 
-    console.log(smallestNumber);
-    return newArray;
+
+        const temp = array[i];
+        array[i] = array[minIndex];
+        array[minIndex] = temp;
+    }
+    return array;
     // Only change code above this line
   }
 
 selectionSort(array);
 
 console.log(array);
-console.log(newArray);
