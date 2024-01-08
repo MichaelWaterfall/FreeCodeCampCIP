@@ -12,9 +12,7 @@ function selectionSort(array) {
             }
         }
 
-        const temp = array[i];
-        array[i] = array[minIndex];
-        array[minIndex] = temp;
+        [array[i], array[minIndex]] = [array[minIndex], array[i]];
     }
     return array;
     // Only change code above this line
